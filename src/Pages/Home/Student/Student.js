@@ -14,15 +14,24 @@ const Student = () => {
 
     return (
         <div>
-            {
-                student.map(st=><div>
-                    <p>{st.name}</p>
-                    <p>{st.email}</p>
-                    <p>{st.sid}</p>
-                     </div>)
-            }
+            <div class="container">
+  <div class="row">
+      {
+          student.map(st=>
+            <div class="col">
+            Column
+          </div>
+            )
+      }
+   
+    
+  </div>
+</div>
+           
         </div>
     );
 };
 
 export default Student;
+
+ 
