@@ -18,10 +18,11 @@ const Student = () => {
   <div class="row">
       {
           student.map(st=>
-            <div class="col">
+            <div class="col bg-primary text-white m-2 py-4 rounded">
            <p>{st.name}</p>
            <p>{st.email}</p>
            <p>{st.sid}</p>
+           <button  >Edit</button>
           </div>
             )
       }

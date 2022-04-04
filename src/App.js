@@ -8,6 +8,7 @@ import Header from './Pages/Shared/Header';
 import Student from './Pages/Home/Student/Student';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Home/Login/Login';
+import Addstudent from './Pages/Home/AddStudent/Addstudent';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route path="/allstudent">
           <Student></Student>
+        </Route>
+        <Route path="/addstudent">
+          <Addstudent></Addstudent>
         </Route>
       </Switch>
       </BrowserRouter>
