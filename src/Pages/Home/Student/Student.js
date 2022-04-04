@@ -19,7 +19,9 @@ const Student = () => {
       {
           student.map(st=>
             <div class="col">
-            Column
+           <p>{st.name}</p>
+           <p>{st.email}</p>
+           <p>{st.sid}</p>
           </div>
             )
       }
