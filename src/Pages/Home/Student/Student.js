@@ -12,21 +12,29 @@ const Student = () => {
         });
     },[student]);
     const handledelete =id =>{
-        const confirm = window.confirm("Are you sure to delete this products");
+        const confirm = window.confirm("Are you sure to delete this students");
         if (confirm) 
         {
-            fetch(`http://localhost:8000/api/student/delete/${id}`, {
-              method: 'post',
-              headers: {
-                'content-type': 'application/json'
-              }
-            })
-              .then(res => res.json())
-              .then(data => {
-                if (data.status=200) {
-                  alert("delete succefull Successfully");
+            axios.post(`http://localhost:8000/api/student/delete/${id}`)
+            .then(res => {
+                if(res.status=200){
+                    alert("delete succefull Successfully");
+                  
+                
                 }
-              })
+            })
+            // fetch(`http://localhost:8000/api/student/delete/${id}`, {
+            //   method: 'post',
+            //   headers: {
+            //     'content-type': 'application/json'
+            //   }
+            // })
+            //   .then(res => res.json())
+            //   .then(data => {
+            //     if (data.status=200) {
+            //       alert("delete succefull Successfully");
+            //     }
+            //   })
             console.log(id);
           }
 
