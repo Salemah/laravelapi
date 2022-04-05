@@ -25,6 +25,32 @@ const Student = () => {
         }
 
     }
+    const handleOnChange = e => {
+        const feild = e.target.name;
+        const value = e.target.value;
+        const newaptdata = { ...student };
+        newaptdata[feild] = value;
+        setStudent(newaptdata);
+       
+
+
+    }
+    const handleaddservice = e => {
+        const students = {
+            ...student
+        }
+        axios.post('http://localhost:8000/api/student/add', students)
+            .then(res => {
+                if(res.status=200){
+                  alert('success');
+                  
+                
+                }
+            })
+           
+            
+        e.preventDefault();
+    }
     const handleEdit = id => {
         // axios.post(`http://localhost:8000/api/student/delete/${id}`)
         //     .then(res => {
@@ -60,22 +86,7 @@ const Student = () => {
 
                 </div>
 
-                <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Show a second modal and hide this one with the button below.
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
 
         </div>
