@@ -1,8 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import StudenteditModal from './StudenteditModal';
 
 const Student = () => {
     const [student, setStudent] = useState([]);
+    const [editstudent, setEditStudent] = useState({});
+
+
     useEffect(function () {
         axios.get("http://localhost:8000/api/student/all")
             .then(function (rsp) {
@@ -11,6 +15,8 @@ const Student = () => {
 
             });
     }, [student]);
+
+
     const handledelete = id => {
         const confirm = window.confirm("Are you sure to delete this students");
         if (confirm) {
@@ -25,13 +31,25 @@ const Student = () => {
         }
 
     }
+
+    const handleEdit = id => {
+        axios.get(`http://localhost:8000/api/student/${id}`)
+            .then(res => {
+                if (res.status = 200) {
+                    setEditStudent(res.data);
+                    //console.log(res.data)
+                }
+            })
+
+    }
+
     const handleOnChange = e => {
         const feild = e.target.name;
         const value = e.target.value;
         const newaptdata = { ...student };
         newaptdata[feild] = value;
         setStudent(newaptdata);
-       
+
 
 
     }
@@ -41,30 +59,17 @@ const Student = () => {
         }
         axios.post('http://localhost:8000/api/student/add', students)
             .then(res => {
-                if(res.status=200){
-                  alert('success');
-                  
-                
+                if (res.status = 200) {
+                    alert('success');
+
+
                 }
             })
-           
-            
+
+
         e.preventDefault();
     }
-    const handleEdit = id => {
-        // axios.post(`http://localhost:8000/api/student/delete/${id}`)
-        //     .then(res => {
-        //         if (res.status = 200) {
-        //             alert("delete succefull Successfully");
-
-
-        //         }
-        //     })
-
-
-
-
-    }
+  
 
     return (
         <div>
@@ -86,8 +91,14 @@ const Student = () => {
 
                 </div>
 
-               
+
             </div>
+            <StudenteditModal
+            
+            
+            updateStudent={editstudent}>
+
+            </StudenteditModal>
 
         </div>
 

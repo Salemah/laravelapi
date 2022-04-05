@@ -9,6 +9,7 @@ import Student from './Pages/Home/Student/Student';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Home/Login/Login';
 import Addstudent from './Pages/Home/AddStudent/Addstudent';
+import AllStudents from './Pages/Home/TestCrud/AllStudents';
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
         <Route path="/addstudent">
           <Addstudent></Addstudent>
         </Route>
+        <Route path="/testallstudent">
+          <AllStudents></AllStudents>
+        </Route>
+
       </Switch>
       </BrowserRouter>
 
