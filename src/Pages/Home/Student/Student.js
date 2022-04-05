@@ -35,18 +35,18 @@ const Student = () => {
             //       alert("delete succefull Successfully");
             //     }
             //   })
-            console.log(id);
+            
           }
 
     }
 
     return (
         <div>
-            <div class="container">
-  <div class="row">
+            <div className="container">
+  <div className="row">
       {
           student.map(st=>
-            <div class="col bg-primary text-white m-2 py-4 rounded"  key={st.id}>
+            <div className="col bg-primary text-white m-2 py-4 rounded"  key={st.id}>
             
            <p>{st.name}</p>
            <p>{st.email}</p>

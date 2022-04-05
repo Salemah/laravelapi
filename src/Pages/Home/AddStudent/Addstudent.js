@@ -31,27 +31,47 @@ const Addstudent = () => {
                 }
             })
            
-
+            
         e.preventDefault();
     }
     return (
         <div>
+             {/* Modal Start */}
+             {addsuccess &&
+                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                   
+                     <div className="modal-body">
+                      <p>New student added succfeull</p>
+                    </div> 
+                    <div className="modal-footer">
+                      <button type="button" className="btn btn-secondary" data-bs-dismiss="modal"onClick={close} >Close</button>
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              }
+              {/* Modal End  */}
             <div className="container">
                 <div className="row justify-content-md-center">
 
                     <div className="col-md-auto">
                         <form onSubmit={handleaddservice}>
                         <div className="mb-3">
-                                <label for="exampleInputPassword1" className="form-label">Name</label>
+                                <label htmlFor="exampleInputPassword1" className="form-label">Name</label>
                                 <input type="text" name='name' className="form-control" onBlur={handleOnChange}  />
                             </div>
                             <div className="mb-3">
-                                <label for="exampleInputEmail1" className="form-label">Email address</label>
+                                <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                                 <input type="email" name='email' className="form-control"   onBlur={handleOnChange}  />
                 
                             </div>
                             <div className="mb-3">
-                                <label for="exampleInputPassword1" className="form-label">SId</label>
+                                <label htmlFor="exampleInputPassword1" className="form-label">SId</label>
                                 <input type="text" name='sid' className="form-control"  onBlur={handleOnChange}  />
                             </div>
 
@@ -60,23 +80,7 @@ const Addstudent = () => {
                     </div>
 
                 </div>
-                {/*  */}
-                {addsuccess &&
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                   
-                     <div class="modal-body">
-                      <p>New student added succfeull</p>
-                    </div> 
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"onClick={close} >Close</button>
-                      
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>}
+               
 
             </div>
             
