@@ -10,7 +10,27 @@ const Student = () => {
         },function(err){
 
         });
-    },[]);
+    },[student]);
+    const handledelete =id =>{
+        const confirm = window.confirm("Are you sure to delete this products");
+        if (confirm) 
+        {
+            fetch(`http://localhost:8000/api/student/delete/${id}`, {
+              method: 'post',
+              headers: {
+                'content-type': 'application/json'
+              }
+            })
+              .then(res => res.json())
+              .then(data => {
+                if (data.status=200) {
+                  alert("delete succefull Successfully");
+                }
+              })
+            console.log(id);
+          }
+
+    }
 
     return (
         <div>
@@ -18,11 +38,12 @@ const Student = () => {
   <div class="row">
       {
           student.map(st=>
-            <div class="col bg-primary text-white m-2 py-4 rounded">
+            <div class="col bg-primary text-white m-2 py-4 rounded"  key={st.id}>
+            
            <p>{st.name}</p>
            <p>{st.email}</p>
            <p>{st.sid}</p>
-           <button  >Edit</button>
+           <button onClick={()=>handledelete(st.id)}  >Delete</button>
           </div>
             )
       }
